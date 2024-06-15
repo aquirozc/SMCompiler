@@ -1,0 +1,3 @@
+SI PERRO >= 5 ENTONCES
+	PERRO <- "El pepe"
+FIN_SI

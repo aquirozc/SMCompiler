@@ -1,0 +1,18 @@
+si
+SI
+ID
+PERRO
+MAI
+>=
+NUM
+5
+entonces
+ENTONCES
+ID
+PERRO
+ASIG
+<-
+CAD
+"El pepe"
+fin_si
+FIN_SI
