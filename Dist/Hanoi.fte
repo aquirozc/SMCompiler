@@ -1,0 +1,38 @@
+declara
+	dato p, n, nosirve, cadenaro -> numerico
+	dato a, b, c -> cadena
+fin_declara
+comienza
+	p <- 0;
+	escribe("Dame el numero de discos: ");
+	lee(n);
+	a <- "Col A";
+	b <- "Col B";
+	c <- "Col C";
+	nosirve <- hanoi(n,a,b,c);
+termina
+funciones
+	funcion numerico hanoi(numerico m, cadena x, cadena w, cadena z)
+		si(m=1)entonces
+			escribe(p); 
+			escribe(" "); 
+			escribe("Pasar disco de ");
+			escribe(x);
+			escribe(" a ");
+			escribe_ret(w);
+			p <- p + 1;
+		otro_caso
+			m <- m-1;
+			nosirve <- hanoi(m,x,z,w);
+			escribe(p);
+			escribe(" "); 
+			escribe("Pasar disco de ");
+			escribe(x);
+			escribe(" a ");
+			escribe_ret(w);
+			p <- p + 1;
+			nosirve <- hanoi(m,z,w,x);
+		FIN_SI;
+		hanoi <- 0;
+	FIN_FUNCION
+FIN_FUNCIONES

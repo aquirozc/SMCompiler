@@ -25,6 +25,7 @@ impl AnalizadorLexico{
     }
 
     pub fn analyze_file(&mut self, s : &str) -> String{
+
         let mut list : Vec<String> = Vec::new();
         self.line = self.read_file(s);
 
@@ -34,6 +35,7 @@ impl AnalizadorLexico{
             list.push(self.compute_token().to_string());
         }
 
+        list.push("fin\nfin".to_string());
         list.iter().filter(|s| !s.is_empty()).map(|s| s.to_string()).collect::<Vec<String>>().join("\n")
     }
 
@@ -76,7 +78,7 @@ impl AnalizadorLexico{
 
                 3 => {
                     self.aa -= 1;
-                    return self.get_entry_of("ID")
+                    return self.get_entry_of("id")
                 }
 
                 4 => {
@@ -108,7 +110,7 @@ impl AnalizadorLexico{
                 }
 
                 7 => {
-                    return self.get_entry_of("CAD");
+                    return self.get_entry_of("cad");
                 }
 
                 8 => {
@@ -151,7 +153,7 @@ impl AnalizadorLexico{
 
                 12 => {
                     self.aa -= 1;
-                    return self.get_entry_of("NUM");
+                    return self.get_entry_of("num");
                 }
 
                 13 => {
@@ -175,7 +177,7 @@ impl AnalizadorLexico{
 
                 15 => {
                     self.aa -= 1;
-                    return self.get_entry_of("NUM");
+                    return self.get_entry_of("num");
                 }
 
                 16 => {
@@ -196,7 +198,7 @@ impl AnalizadorLexico{
                 }
 
                 18 => {
-                    return self.get_entry_of("MAI");
+                    return self.get_entry_of("mai");
                 }
 
                 19 => {
@@ -214,15 +216,15 @@ impl AnalizadorLexico{
                 }
 
                 21 => {
-                    return self.get_entry_of("MEI");
+                    return self.get_entry_of("mei");
                 }
 
                 22 => {
-                    return self.get_entry_of("ASIG");
+                    return self.get_entry_of("asig");
                 }
 
                 23 => {
-                    return self.get_entry_of("DIF");
+                    return self.get_entry_of("dif");
                 }
 
                 24 => {
@@ -297,7 +299,7 @@ impl AnalizadorLexico{
                 }
 
                 33 => {
-                    return self.get_entry_of("OPDEC");
+                    return self.get_entry_of("opdec");
                 }
 
                 34 => {
@@ -490,7 +492,7 @@ impl Entry {
 
     fn new(token : String, lexema : String) -> Self{
 
-        if token.eq("ID") && AnalizadorLexico::RESERVED_WORDS.contains(&lexema.to_lowercase().as_str()){
+        if token.eq("id") && AnalizadorLexico::RESERVED_WORDS.contains(&lexema.to_lowercase().as_str()){
             return Entry{token : lexema.to_lowercase(), lexema}
         }
 

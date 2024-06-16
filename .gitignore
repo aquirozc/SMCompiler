@@ -1,0 +1,4 @@
+*/target
+Dist/analizador_lex*
+Dist/parser_slr*
+
